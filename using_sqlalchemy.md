@@ -11,11 +11,13 @@ Ensure you have:
   ```bash
   pip install sqlalchemy psycopg2
 ## Setting Up the Connection
-1. Import the Required Libraries
+### 1. Import the Required Libraries
    ```Python
     from sqlalchemy import create_engine
+  ```
 This imports create_engine, which allows us to establish a connection.
-2. Define Connection URL
+### 2. Define Connection URL
 The PostgreSQL connection URL follows this format:
   ```Python
   DATABASE_URL = "postgresql+psycopg2://postgres:mysecretpassword@localhost:5432/mydatabase"
+  ```
