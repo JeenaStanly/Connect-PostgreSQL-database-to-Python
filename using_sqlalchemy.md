@@ -21,3 +21,41 @@ The PostgreSQL connection URL follows this format:
   ```Python
   DATABASE_URL = "postgresql+psycopg2://postgres:mysecretpassword@localhost:5432/mydatabase"
   ```
+### 3. Create SQLAlchemy Engine
+```Python
+engine = create_engine(DATABASE_URL)
+```
+This establishes a connection with the PostgreSQL database.
+### 4. Test the Connection
+```Python
+connection = engine.connect()
+print("✅ Successfully connected to PostgreSQL!")
+connection.close()
+```
+## Working with Pandas and SQLAlchemy
+SQLAlchemy works seamlessly with Pandas for reading/writing data.
+### Insert Pandas DataFrame into PostgreSQL
+```Python
+import pandas as pd
+
+# Sample DataFrame
+df = pd.DataFrame({
+    "id": [1, 2, 3],
+    "name": ["Alice", "Bob", "Charlie"],
+    "age": [25, 30, 28]
+})
+
+# Load DataFrame into PostgreSQL table
+df.to_sql("employees", con=engine, if_exists="replace", index=False)
+print("✅ Data successfully inserted into PostgreSQL!")
+```
+### Read Data from PostgreSQL
+```
+query = "SELECT * FROM employees"
+df_new = pd.read_sql(query, con=engine)
+print(df_new)
+```
+### Conclusion
+Using SQLAlchemy, you can easily manage PostgreSQL connections, execute queries, and interact with Pandas. This approach helps in efficient database operations without manual connection handling.
+
+
