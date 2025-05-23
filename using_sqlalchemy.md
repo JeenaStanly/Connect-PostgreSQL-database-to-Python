@@ -10,3 +10,8 @@ Ensure you have:
 - Necessary Python libraries installed:
   ```bash
   pip install sqlalchemy psycopg2
+## Setting Up the Connection
+1. Import the Required Libraries
+   ```Python
+    from sqlalchemy import create_engine
+```
