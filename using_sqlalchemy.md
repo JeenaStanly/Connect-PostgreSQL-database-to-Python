@@ -14,4 +14,3 @@ Ensure you have:
 1. Import the Required Libraries
    ```Python
     from sqlalchemy import create_engine
-```
